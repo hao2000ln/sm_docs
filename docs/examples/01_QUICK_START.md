@@ -1,18 +1,10 @@
----
-id: quick-start
-title: Quick Start — Tạo màn hình danh sách
-sidebar_label: 01. Quick Start
-sidebar_position: 1
-description: Hướng dẫn tạo màn hình danh sách tối thiểu với paging, search, filter và export mà không viết HTML.
----
-
 # 01 — Quick Start: Tạo màn hình danh sách
 
 Mục tiêu: tạo một list screen có paging, search, filter và export mà không viết HTML.
 
 Đây là mẫu tối thiểu. Khi cần một ví dụ đầy đủ hơn, xem
 `app/scriptlibraries/screens/contracts/ContractListDefinition.js` và checklist tại
-[02 — Screen Config Reference](./screen-config-reference).
+[02_SCREEN_CONFIG_REFERENCE.md](02_SCREEN_CONFIG_REFERENCE.md).
 
 ## 1. Tạo ScreenDefinition
 
@@ -99,6 +91,7 @@ Không tạo HTML/CSS/bootstrap riêng cho từng màn hình.
 
 ## 6. Khi cần thêm chức năng
 
-- Filter/lookup/form: [02 — Screen Config Reference](./screen-config-reference)
-- Mutation/custom action: [05 — Action Development](./action-development)
-- Export/job: [07 — Export và Background Job](./export-and-background-jobs)
+- Filter/lookup/form: [02_SCREEN_CONFIG_REFERENCE.md](02_SCREEN_CONFIG_REFERENCE.md)
+- Mutation/custom action: [05_ACTION_DEVELOPMENT.md](05_ACTION_DEVELOPMENT.md)
+- Export/job: [07_EXPORT_AND_BACKGROUND_JOBS.md](07_EXPORT_AND_BACKGROUND_JOBS.md)
+

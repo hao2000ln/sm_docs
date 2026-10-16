@@ -1,11 +1,3 @@
----
-id: api-response-reference
-title: API Response và Error Contract
-sidebar_label: 10. API Response
-sidebar_position: 10
-description: Cấu trúc response thành công/thất bại, nhóm mã lỗi và HTTP status mapping của tất cả endpoint HPT_ScreenService.
----
-
 # 10 — API Response và Error Contract
 
 Mọi endpoint `HPT_ScreenService` trả JSON có `success` và `requestId`.
@@ -40,10 +32,8 @@ Các thuộc tính theo nghiệp vụ như `screen`, `defaults`, `page`, `limit`
 }
 ```
 
-:::danger
 Không trả stack trace, câu query, table, DBDict field hoặc exception nội bộ cho client.
 Dùng `requestId` để đối chiếu structured log phía server.
-:::
 
 ## Nhóm mã lỗi và HTTP status
 
@@ -56,4 +46,5 @@ Dùng `requestId` để đối chiếu structured log phía server.
 | Thành phần chưa sẵn sàng | `SCREEN_CONFIG_UNAVAILABLE`, `OPERATION_UNAVAILABLE` | 503 |
 | Lỗi backend/cấu hình | `QUERY_ERROR`, `INVALID_SCREEN_DEFINITION`, `INTERNAL_SERVICE_ERROR` | 500 |
 
-WebTier chỉ ánh xạ mã lỗi ổn định sang HTTP status. Nội dung quyền, data scope và nghiệp vụ vẫn được quyết định ở App Server.
+WebTier chỉ ánh xạ mã lỗi ổn định sang HTTP status. Nội dung quyền, data scope và
+nghiệp vụ vẫn được quyết định ở App Server.

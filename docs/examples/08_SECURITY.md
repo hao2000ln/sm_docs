@@ -1,11 +1,3 @@
----
-id: security
-title: Security và Data Scope
-sidebar_label: 08. Security
-sidebar_position: 8
-description: Cấu hình dataPermission (pilot), phạm vi áp dụng data scope và quyền thao tác actionPermissions.
----
-
 # 08 — Security và Data Scope
 
 ## Cấu hình pilot
@@ -21,15 +13,10 @@ dataPermission: {
 }
 ```
 
-:::important Quy tắc
 - `subModule` phải khớp mã phân quyền dữ liệu của nghiệp vụ trên SM.
 - Tên field chỉ được khai báo trong metadata backend, client không được gửi các giá trị này.
-- Thiếu contact, scope, provider hoặc cấu hình hợp lệ sẽ **từ chối truy cập** (fail closed).
-:::
-
-- Scope toàn quyền trả về query `true`.
-- Scope cá nhân giới hạn theo `ownerField`.
-- Scope đơn vị giới hạn theo `unitFields` và danh sách đơn vị được cấp.
+- Thiếu contact, scope, provider hoặc cấu hình hợp lệ sẽ từ chối truy cập (fail closed).
+- Scope toàn quyền trả về query `true`; scope cá nhân giới hạn theo `ownerField`; scope đơn vị giới hạn theo `unitFields` và danh sách đơn vị được cấp.
 
 ## Phạm vi đã áp dụng
 
@@ -53,11 +40,10 @@ actionPermissions: {
 }
 ```
 
-:::warning
-- Action không được khai báo sẽ bị từ chối
-- `allow: true` chỉ phù hợp với action đã được phép cho toàn bộ người dùng đăng nhập.
-- **Action authorization** và **data scope** là hai bước độc lập: có quyền update vẫn chỉ update được bản ghi nằm trong data scope.
-:::
+- Action không được khai báo sẽ bị từ chối.
+- `allow: true` chỉ phù hợp với action đã được phép cho toàn bộ người dùng đăng nhập của screen.
+- Nghiệp vụ cần quyền riêng phải dùng `checker` server-side trong metadata; client không được truyền tên checker hay permission.
+- Action authorization và data scope là hai bước độc lập: có quyền update vẫn chỉ update được bản ghi nằm trong data scope.
 
 ## Việc còn lại trước production
 

@@ -1,11 +1,3 @@
----
-id: operations-and-release
-title: Vận hành và Phát hành V1
-sidebar_label: 09. Operations & Release
-sidebar_position: 9
-description: Mục tiêu hiệu năng, thứ tự publish, smoke test tối thiểu, cache frontend và bảng chẩn đoán nhanh.
----
-
 # 09 — Vận hành và Phát hành V1
 
 ## Mục tiêu hiệu năng
@@ -27,7 +19,8 @@ description: Mục tiêu hiệu năng, thứ tự publish, smoke test tối thi�
 6. Smoke test
 ```
 
-Chỉ thay ScreenDefinition/domain ScriptLibrary thì không cần build lại Java. Thay endpoint whitelist/servlet mới cần build và deploy WebTier.
+Chỉ thay ScreenDefinition/domain ScriptLibrary thì không cần build lại Java. Thay endpoint
+whitelist/servlet mới cần build và deploy WebTier.
 
 ## Smoke test tối thiểu
 
@@ -51,7 +44,8 @@ asset version trong hpt_csp_loader
  → bootstrap version trong HPT_ScreenView
 ```
 
-Publish `HPT_ScreenView`, đóng tab cũ và mở lại. `Ctrl+Shift+R` chỉ là bước kiểm chứng, không thay cho cache version đúng.
+Publish `HPT_ScreenView`, đóng tab cũ và mở lại. `Ctrl+Shift+R` chỉ là bước kiểm chứng,
+không thay cho cache version đúng.
 
 ## Chẩn đoán nhanh
 
@@ -73,3 +67,6 @@ Publish `HPT_ScreenView`, đóng tab cũ và mở lại. `Ctrl+Shift+R` chỉ l�
 - Không còn raw query/table/field do client điều khiển.
 - Các giới hạn list/action/export đã cấu hình.
 - Known limitations được ghi rõ trong release note.
+
+Checklist phát hành đầy đủ và lệnh release gate nằm tại [14_V1_RELEASE_CHECKLIST.md](14_V1_RELEASE_CHECKLIST.md).
+

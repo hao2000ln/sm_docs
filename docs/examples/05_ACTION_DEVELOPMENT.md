@@ -1,11 +1,3 @@
----
-id: action-development
-title: Phát triển Action
-sidebar_label: 05. Action Development
-sidebar_position: 5
-description: Kiến trúc custom action, lifecycle, quy tắc bắt buộc và checklist thêm action mới cho Common API V1.
----
-
 # 05 — Phát triển Action
 
 ## Chọn loại action
@@ -17,9 +9,13 @@ description: Kiến trúc custom action, lifecycle, quy tắc bắt buộc và c
 | Nhiều bảng, lịch sử, mail, rule đặc thù | `operation: "custom"` |
 | Tạo từ danh sách liên quan | screen action + `selector` |
 
-Dynamic Form, selector, hộp xác nhận và Excel Import dùng chung `HPTModalPortal`; backdrop phủ toàn bộ WebTier thay vì chỉ frame danh sách. Loading khi thực thi vẫn cấu hình độc lập bằng `execution.maskScope: "framework"`.
+Dynamic Form, selector, hộp xác nhận và Excel Import dùng chung `HPTModalPortal`; do đó backdrop
+phủ toàn bộ WebTier thay vì chỉ frame danh sách. Loading khi thực thi vẫn cấu hình độc lập bằng
+`execution.maskScope: "framework"`.
 
 ## Phạm vi popup và loading
+
+Popup/backdrop và loading là hai cơ chế độc lập:
 
 | Cơ chế | Cấu hình hiện tại | Ý nghĩa |
 | --- | --- | --- |
@@ -27,6 +23,17 @@ Dynamic Form, selector, hộp xác nhận và Excel Import dùng chung `HPTModal
 | Loading API | `execution.maskScope: "screen"` | Chỉ khóa frame chứa màn hình hiện tại |
 | Loading API | `execution.maskScope: "framework"` | Khóa frame WebTier lớn nhất |
 | Loading API | `execution.maskScope: "none"` | Không hiển thị loading mask |
+
+Ví dụ chỉ mask màn hình hiện tại:
+
+```javascript
+execution: {
+  maskScope: "screen",
+  maskMessage: "Đang xử lý...",
+  preventClose: true,
+  preventDuplicate: true
+}
+```
 
 Ví dụ mask toàn bộ WebTier:
 
@@ -38,6 +45,9 @@ execution: {
   preventDuplicate: true
 }
 ```
+
+`maskScope` không thay đổi nơi hiển thị popup. Option `modalScope` chưa thuộc contract metadata
+hiện tại; không khai báo `modalScope` cho tới khi ScreenDefinition và runtime hỗ trợ chính thức.
 
 ## Kiến trúc custom action
 
@@ -52,11 +62,11 @@ ScreenDefinition
  → DomainRepository
 ```
 
-- **Definition**: UI, permission, giới hạn, `handlerId`.
-- **Registry**: allowlist handler cố định.
-- **Actions**: lifecycle adapter.
-- **Service**: business rule.
-- **Repository**: `SCFile`/persistence.
+- Definition: UI, permission, giới hạn, `handlerId`.
+- Registry: allowlist handler cố định.
+- Actions: lifecycle adapter.
+- Service: business rule.
+- Repository: `SCFile`/persistence.
 
 ## Ví dụ khai báo
 
@@ -98,7 +108,7 @@ prepare → validateItem → executeItem → afterItem → finalize → cleanup
 ```
 
 - `prepare`: validate/query dữ liệu dùng chung một lần.
-- `validateItem`: **không được** ghi dữ liệu.
+- `validateItem`: không được ghi dữ liệu.
 - `executeItem`: xử lý một record đã qua scope và optimistic locking.
 - `afterItem`: hậu xử lý nhẹ; lỗi trả warning, không giả vờ rollback.
 - `finalize`: tổng hợp hoặc tạo outbox/job; không gửi mail/webhook đồng bộ.
@@ -121,3 +131,4 @@ prepare → validateItem → executeItem → afterItem → finalize → cleanup
 3. Đăng ký DomainActionRegistry; domain mới phải đăng ký namespace trung tâm.
 4. Thêm ScriptLibrary vào manifest đúng thứ tự.
 5. Test permission, scope, stale `sysmodtime`, partial success và retry.
+

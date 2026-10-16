@@ -1,16 +1,8 @@
----
-id: screen-config-reference
-title: Screen Configuration Reference
-sidebar_label: 02. Screen Config Reference
-sidebar_position: 2
-description: Checklist nhân bản màn hình, version, fields, columns, lookup, search/sort/filter, selection, dynamic form và preset.
----
-
 # 02 — Screen Configuration Reference
 
 ## Hai mức màn hình mẫu
 
-- Mẫu tối thiểu để bắt đầu nhanh nằm trong [01 — Quick Start](./quick-start).
+- Mẫu tối thiểu để bắt đầu nhanh nằm trong [01_QUICK_START.md](01_QUICK_START.md).
 - Mẫu đầy đủ tham khảo cách ghép list, lookup, dynamic form, batch action, selector,
   optimistic lock và data scope là
   `app/scriptlibraries/screens/contracts/ContractListDefinition.js`.
@@ -158,5 +150,5 @@ presets.optimisticLockField([
 
 Preset trả object mới; không sửa trực tiếp preset hoặc giữ definition ở biến top-level.
 
-Chi tiết nâng cao: [04 — Dynamic Form Reference](./dynamic-form-reference) và
-[06 — Selection và Batch Reference](./selection-and-batch-reference).
+Chi tiết nâng cao: [04_DYNAMIC_FORM_REFERENCE.md](04_DYNAMIC_FORM_REFERENCE.md) và
+[06_SELECTION_AND_BATCH_REFERENCE.md](06_SELECTION_AND_BATCH_REFERENCE.md).
