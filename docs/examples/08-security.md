@@ -54,7 +54,7 @@ actionPermissions: {
 ```
 
 :::warning
-- Action không được khai báo sẽ bị từ chối.
+- Action không được khai báo sẽ bị từ chối
 - `allow: true` chỉ phù hợp với action đã được phép cho toàn bộ người dùng đăng nhập.
 - **Action authorization** và **data scope** là hai bước độc lập: có quyền update vẫn chỉ update được bản ghi nằm trong data scope.
 :::
