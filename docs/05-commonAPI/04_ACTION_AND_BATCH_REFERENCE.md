@@ -1,4 +1,59 @@
-# 06 — Selection và Batch Reference
+# 04 — Action, Selection và Batch Reference
+
+## Chọn loại action
+
+| Nhu cầu | Cách làm |
+| --- | --- |
+| Refresh/export | `screen.actions` chuẩn. |
+| Update/delete đơn giản | Batch action chuẩn với metadata backend. |
+| Nhiều bảng, lịch sử, mail hoặc rule đặc thù | `operation: "custom"` với `handlerId` đã đăng ký. |
+| Tạo từ danh sách liên quan | Screen action kết hợp `selector`. |
+
+Popup dùng `HPTModalPortal` để phủ frame WebTier cao nhất. Loading là cơ chế riêng và
+được chọn bằng `execution.maskScope`: `none`, `dialog`, `screen` hoặc `framework`.
+
+## Kiến trúc custom action
+
+```text
+ScreenDefinition
+ → BatchActionEngine / ActionOrchestrator
+ → ActionRegistry → DomainActionRegistry
+ → DomainActions → DomainService → DomainRepository
+```
+
+- Definition chỉ chứa metadata, permission, giới hạn và `handlerId`.
+- Registry là allowlist cố định ánh xạ handler sang domain.
+- Service chứa business rule; Repository chịu trách nhiệm `SCFile` và persistence.
+- Client không được truyền library, handler, table, DBDict field hoặc raw query.
+
+Ví dụ đăng ký handler:
+
+```javascript
+function getDefinitions() {
+  return {
+    "assets.approve": {
+      enabled: true,
+      library: "HPT_AssetActions",
+      factory: "getApproveHandler"
+    }
+  };
+}
+```
+
+## Lifecycle custom handler
+
+```text
+prepare → validateItem → executeItem → afterItem → finalize → cleanup
+```
+
+| Bước | Trách nhiệm |
+| --- | --- |
+| `prepare` | Đọc và kiểm tra dữ liệu dùng chung một lần. |
+| `validateItem` | Kiểm tra từng item, không ghi dữ liệu. |
+| `executeItem` | Thực hiện nghiệp vụ trên item đã qua scope và optimistic lock. |
+| `afterItem` | Hậu xử lý nhẹ; lỗi được trả warning, không giả lập rollback. |
+| `finalize` | Tổng hợp hoặc tạo outbox/job; không gửi integration dài đồng bộ. |
+| `cleanup` | Giải phóng resource kể cả khi xử lý lỗi. |
 
 ## Backend enforcement cho điều kiện action
 
@@ -154,7 +209,6 @@ xử lý và log; nó không biến nhiều record thành một transaction chun
 Action cập nhật/xóa đơn giản dùng `operation: "update"` hoặc `"delete"`. Nghiệp vụ
 nhiều bảng, lịch sử hoặc integration dùng `operation: "custom"` với `handlerId`
 được đăng ký backend; không viết function handler trực tiếp trong ScreenDefinition.
-Xem [05_ACTION_DEVELOPMENT.md](05_ACTION_DEVELOPMENT.md).
 
 ## Batch chunk và transactionMode
 
@@ -179,3 +233,11 @@ có `conflict.updatedBy` khi backend metadata cho phép công khai trường ng�
 - Không dùng `cwc.showMessage()` cho cảnh báo ngắn: core triển khai hàm này bằng `Ext.Msg` modal và xếp các lần gọi tiếp theo vào `cwc.popupQueue`.
 - `lib.ESD_Utils.printMsg(message, severity)` chạy trên App Server qua `rtecall("msg", ...)`, chỉ dùng trong RuleSet/ScriptLibrary nghiệp vụ. Không gọi API server chỉ để hiện cảnh báo selection phía client.
 - Lỗi làm màn hình/danh sách không tải được hiển thị tại `screenError`; validation và kết quả/lỗi action dùng toast không chặn thao tác.
+
+## Checklist thêm action
+
+1. Khai báo nút UI, permission và backend action cùng một `actionId`.
+2. Chọn operation chuẩn hoặc viết Repository → Service → Actions cho nghiệp vụ custom.
+3. Đăng ký `handlerId` trong DomainActionRegistry và manifest đúng thứ tự dependency.
+4. Cấu hình giới hạn, transaction mode, optimistic lock, idempotency và data scope.
+5. Test quyền, stale version, partial success, retry và reload danh sách sau thành công.

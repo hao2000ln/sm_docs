@@ -1,4 +1,4 @@
-# 08 — Security và Data Scope
+# 06 — Security và Data Scope
 
 ## Cấu hình pilot
 

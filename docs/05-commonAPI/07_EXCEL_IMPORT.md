@@ -1,4 +1,4 @@
-# 13 — Excel Import
+# 07 — Excel Import
 
 ## 1. Mục tiêu và phạm vi V1
 
@@ -426,7 +426,7 @@ Chạy regression trước khi publish:
 node webapps/sm/HPT_Config/api_v1/tests/run_all.js
 ```
 
-Checklist phát hành đầy đủ: [14_V1_RELEASE_CHECKLIST.md](14_V1_RELEASE_CHECKLIST.md).
+Checklist phát hành đầy đủ: [11_OPERATIONS_AND_RELEASE.md](11_OPERATIONS_AND_RELEASE.md).
 
 ## 15. File liên quan
 

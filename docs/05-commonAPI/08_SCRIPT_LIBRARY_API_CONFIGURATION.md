@@ -1,4 +1,4 @@
-# 11 — Cấu hình API gọi ScriptLibrary.function
+# 08 — Cấu hình API gọi ScriptLibrary.function
 
 Tài liệu này hướng dẫn công bố một function của Service Manager ScriptLibrary qua URL:
 

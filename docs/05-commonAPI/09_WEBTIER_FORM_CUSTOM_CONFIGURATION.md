@@ -1,4 +1,4 @@
-# 12 — Cấu hình custom WebTier và Form Designer
+# 09 — Cấu hình custom WebTier và Form Designer
 
 Tài liệu này là nơi tra cứu tập trung các cấu hình HPT áp dụng cho control của
 Service Manager Form Designer. Các cấu hình đều theo cơ chế **opt-in**: chỉ field

@@ -31,18 +31,15 @@ metadata backend, còn nghiệp vụ đặc thù được tách theo domain.
 | --- | --- | --- |
 | 01 | [Quick Start](01_QUICK_START.md) | Tạo màn hình đầu tiên |
 | 02 | [Screen Config](02_SCREEN_CONFIG_REFERENCE.md) | Tra cứu cấu hình list |
-| 03 | [Filter và Lookup](03_FILTER_AND_LOOKUP_REFERENCE.md) | Danh mục, mapping, filter phân cấp |
-| 04 | [Dynamic Form](04_DYNAMIC_FORM_REFERENCE.md) | Popup, input, validation, prefill |
-| 05 | [Action Development](05_ACTION_DEVELOPMENT.md) | CRUD và nghiệp vụ đặc thù |
-| 06 | [Selection và Batch](06_SELECTION_AND_BATCH_REFERENCE.md) | Chọn dòng, batch, conflict, retry |
-| 07 | [Export và Background Job](07_EXPORT_AND_BACKGROUND_JOBS.md) | Export/query/tác vụ lớn |
-| 08 | [Security](08_SECURITY.md) | Permission và data scope |
-| 09 | [Operations và Release](09_OPERATIONS_AND_RELEASE.md) | Publish, cache, smoke test |
+| 03 | [Dynamic Form](03_DYNAMIC_FORM_REFERENCE.md) | Popup, input, validation và prefill |
+| 04 | [Action, Selection và Batch](04_ACTION_AND_BATCH_REFERENCE.md) | CRUD, custom action, chọn dòng, conflict và retry |
+| 05 | [Export và Background Job](05_EXPORT_AND_BACKGROUND_JOBS.md) | Export/query và tác vụ lớn |
+| 06 | [Security](06_SECURITY.md) | Permission và data scope |
+| 07 | [Excel Import](07_EXCEL_IMPORT.md) | Khai báo, kiểm thử và vận hành import Excel |
+| 08 | [ScriptLibrary API](08_SCRIPT_LIBRARY_API_CONFIGURATION.md) | Công bố và test `ScriptLibrary.function` qua Common API |
+| 09 | [WebTier/Form custom](09_WEBTIER_FORM_CUSTOM_CONFIGURATION.md) | Định dạng tiền, chữ số và datetime không giây |
 | 10 | [API Response](10_API_RESPONSE_REFERENCE.md) | Response/error code |
-| 11 | [ScriptLibrary API](11_SCRIPT_LIBRARY_API_CONFIGURATION.md) | Công bố và test `ScriptLibrary.function` qua Common API |
-| 12 | [WebTier/Form custom](12_WEBTIER_FORM_CUSTOM_CONFIGURATION.md) | Button ID định dạng tiền, chữ số và datetime không giây |
-| 13 | [Excel Import](13_EXCEL_IMPORT.md) | Khai báo và kiểm thử import Excel cơ bản theo metadata |
-| 14 | [V1 Release Checklist](14_V1_RELEASE_CHECKLIST.md) | Release gate, publish, smoke test và rollback V1 |
+| 11 | [Operations và Release](11_OPERATIONS_AND_RELEASE.md) | Publish, cache, smoke test, release gate và rollback |
 
 ## Mô hình cần nhớ
 

@@ -1,4 +1,4 @@
-# 09 — Vận hành và Phát hành V1
+# 11 — Vận hành và Phát hành V1
 
 ## Mục tiêu hiệu năng
 
@@ -68,5 +68,27 @@ không thay cho cache version đúng.
 - Các giới hạn list/action/export đã cấu hình.
 - Known limitations được ghi rõ trong release note.
 
-Checklist phát hành đầy đủ và lệnh release gate nằm tại [14_V1_RELEASE_CHECKLIST.md](14_V1_RELEASE_CHECKLIST.md).
+## Release checklist
+
+### Trước khi publish
+
+- Chạy toàn bộ regression test: `node webapps/sm/HPT_Config/api_v1/tests/run_all.js`.
+- Xác nhận definition, manifest và registry không còn dependency thiếu.
+- Review permission, data scope, giới hạn list/action/import/export và cấu hình production.
+- Tạo bản backup artifact App/WebTier cùng hướng dẫn rollback.
+
+### Sau khi publish
+
+- Mở tab mới và kiểm tra asset version trong Network; không dùng cache trình duyệt cũ để kết luận.
+- Chạy smoke test list, detail, filter, action, conflict, export và import đang được bật.
+- Kiểm tra log App Server/WebTier, background job và bảng nghiệp vụ sau mutation.
+- Xác nhận user không có quyền bị từ chối và không nhìn thấy dữ liệu ngoài scope.
+
+### Rollback
+
+1. Dừng nhận mutation/import mới nếu release có lỗi dữ liệu.
+2. Khôi phục artifact đã backup theo đúng tầng bị thay đổi.
+3. Khôi phục `web.xml` bằng bản merge đã lưu nếu có thay đổi Java/WebTier.
+4. Restart WebTier khi class hoặc servlet config thay đổi.
+5. Chạy lại smoke test tối thiểu và ghi nhận nguyên nhân rollback.
 

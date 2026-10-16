@@ -92,6 +92,6 @@ Không tạo HTML/CSS/bootstrap riêng cho từng màn hình.
 ## 6. Khi cần thêm chức năng
 
 - Filter/lookup/form: [02_SCREEN_CONFIG_REFERENCE.md](02_SCREEN_CONFIG_REFERENCE.md)
-- Mutation/custom action: [05_ACTION_DEVELOPMENT.md](05_ACTION_DEVELOPMENT.md)
-- Export/job: [07_EXPORT_AND_BACKGROUND_JOBS.md](07_EXPORT_AND_BACKGROUND_JOBS.md)
+- Mutation/custom action: [04_ACTION_AND_BATCH_REFERENCE.md](04_ACTION_AND_BATCH_REFERENCE.md)
+- Export/job: [05_EXPORT_AND_BACKGROUND_JOBS.md](05_EXPORT_AND_BACKGROUND_JOBS.md)
 
