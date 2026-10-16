@@ -7,20 +7,25 @@ const config: Config = {
   tagline: 'Documentation-as-Code Platform',
   favicon: 'img/favicon.ico',
 
-  url: 'https://docs.yourcompany.internal',
-  baseUrl: '/',
+  url: process.env.URL || 'https://hao2000ln.github.io',
+  baseUrl: process.env.BASE_URL || (process.env.NODE_ENV === 'development' ? '/' : '/sm_docs/'),
+  organizationName: 'hao2000ln',
+  projectName: 'sm_docs',
+  trailingSlash: false,
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
 
   i18n: {
     defaultLocale: 'vi',
     locales: ['vi'],
   },
 
-  // Kích hoạt Mermaid diagram
+  // Kích hoạt Mermaid diagram & hooks
   markdown: {
     mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
   },
   themes: [
     '@docusaurus/theme-mermaid',
