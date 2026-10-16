@@ -1,0 +1,8 @@
+{
+  "label": "2. Thiết kế kiến trúc",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Sơ đồ luồng dữ liệu, C4 Model và Sequence diagrams."
+  }
+}

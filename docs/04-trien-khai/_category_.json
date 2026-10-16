@@ -1,0 +1,8 @@
+{
+  "label": "4. Hướng dẫn triển khai",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Hướng dẫn đóng gói Docker và triển khai hệ thống."
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "label": "3. Đặc tả API",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Đặc tả các RESTful endpoint và cơ chế giao tiếp."
+  }
+}

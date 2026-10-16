@@ -1,0 +1,15 @@
+{
+  "label": "5. Common API V1",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "title": "Common API V1 — Tài liệu Framework",
+    "description": "Bộ tài liệu kỹ thuật đầy đủ cho framework dựng màn hình danh sách HPT. Đọc theo thứ tự từ 00 (Tổng quan) → 13 (Excel Import).",
+    "keywords": [
+      "common-api",
+      "screen",
+      "hpt",
+      "framework"
+    ]
+  }
+}
