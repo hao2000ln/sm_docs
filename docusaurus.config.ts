@@ -7,8 +7,8 @@ const config: Config = {
   tagline: 'Documentation-as-Code Platform',
   favicon: 'img/favicon.ico',
 
-  url: process.env.URL || 'https://hao2000ln.github.io',
-  baseUrl: process.env.BASE_URL || (process.env.NODE_ENV === 'development' ? '/' : '/sm_docs/'),
+  url: process.env.URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'https://sm-docs.vercel.app'),
+  baseUrl: process.env.BASE_URL || '/',
   organizationName: 'hao2000ln',
   projectName: 'sm_docs',
   trailingSlash: false,
