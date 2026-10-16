@@ -137,4 +137,4 @@ Client bỏ chọn dòng thành công và giữ selection của dòng thất b�
 - Dùng adapter dùng chung: `HPTMessage.info(...)`, `success(...)`, `warning(...)`, `error(...)`.
 - Không dùng `cwc.showMessage()` cho cảnh báo ngắn (core dùng `Ext.Msg` modal).
 
-Xem thêm: [05 — Action Development](./05-action-development).
+Xem thêm: [05 — Action Development](./action-development).

@@ -12,7 +12,7 @@ Mục tiêu: tạo một list screen có paging, search, filter và export mà k
 
 Đây là mẫu tối thiểu. Khi cần một ví dụ đầy đủ hơn, xem
 `app/scriptlibraries/screens/contracts/ContractListDefinition.js` và checklist tại
-[02 — Screen Config Reference](./02-screen-config-reference).
+[02 — Screen Config Reference](./screen-config-reference).
 
 ## 1. Tạo ScreenDefinition
 
@@ -99,6 +99,6 @@ Không tạo HTML/CSS/bootstrap riêng cho từng màn hình.
 
 ## 6. Khi cần thêm chức năng
 
-- Filter/lookup/form: [02 — Screen Config Reference](./02-screen-config-reference)
-- Mutation/custom action: [05 — Action Development](./05-action-development)
-- Export/job: [07 — Export và Background Job](./07-export-and-background-jobs)
+- Filter/lookup/form: [02 — Screen Config Reference](./screen-config-reference)
+- Mutation/custom action: [05 — Action Development](./action-development)
+- Export/job: [07 — Export và Background Job](./export-and-background-jobs)

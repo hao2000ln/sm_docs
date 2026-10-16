@@ -10,7 +10,7 @@ description: Checklist nhân bản màn hình, version, fields, columns, lookup,
 
 ## Hai mức màn hình mẫu
 
-- Mẫu tối thiểu để bắt đầu nhanh nằm trong [01 — Quick Start](./01-quick-start).
+- Mẫu tối thiểu để bắt đầu nhanh nằm trong [01 — Quick Start](./quick-start).
 - Mẫu đầy đủ tham khảo cách ghép list, lookup, dynamic form, batch action, selector,
   optimistic lock và data scope là
   `app/scriptlibraries/screens/contracts/ContractListDefinition.js`.
@@ -158,5 +158,5 @@ presets.optimisticLockField([
 
 Preset trả object mới; không sửa trực tiếp preset hoặc giữ definition ở biến top-level.
 
-Chi tiết nâng cao: [04 — Dynamic Form Reference](./04-dynamic-form-reference) và
-[06 — Selection và Batch Reference](./06-selection-and-batch-reference).
+Chi tiết nâng cao: [04 — Dynamic Form Reference](./dynamic-form-reference) và
+[06 — Selection và Batch Reference](./selection-and-batch-reference).
